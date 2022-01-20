@@ -74,12 +74,7 @@ for x in range(4):
 
 
 
-
-
-
-
-
-
+Nékuva la salope
 
 
 
