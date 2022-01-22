@@ -17,7 +17,7 @@ def determiner_immeuble(numero):
     reponse['couleur_porte'] = 'brown'
     reponse['couleur_toit'] = 'lime'
     reponse['numero'] = numero
-    reponse['nombre'] = random.randint(1, 5)
+    reponse['hauteur_batiment'] = random.choice([160, 240, 320, 400, 480])
     return reponse
  
 # Fonctions d'interface graphique
@@ -30,7 +30,7 @@ def dessiner_facade(informations):
     hauteur_batiment = random.choice([160, 240, 320, 400, 480])
     x = informations['numero']*180 - 300
     y = informations['numero']*0
-    cc.rectangle(140, hauteur_batiment, facade, (x,y))
+    cc.rectangle(140, informations['hauteur_batiment'], facade, (x,y))
     
 def dessiner_porte(informations):
     porte = {}
@@ -49,10 +49,9 @@ def dessiner_toit(informations):
     toit['fond'] = informations['couleur_toit']
     toit['épaisseur'] = 2
     taille_batiment = informations['numero']*180 - 300
-    hauteur_batiment = random.choice([160, 240, 320, 400, 480])
     forme_toit = random.randint(0, 1)
     x = taille_batiment
-    y = hauteur_batiment
+    y = informations['hauteur_batiment']
     if forme_toit == 0:
         cc.triangle(140, 180,toit, (x,y))
     else:
@@ -73,4 +72,4 @@ def stockX(numero):
  
 for x in range(4):
     informations = determiner_immeuble(x)
-    dessiner_immeuble(informations)
+    dessiner_immeuble(informations
