@@ -14,7 +14,7 @@ from dessin.codecache import carre
 def determiner_immeuble(numero):
 ''' Determine les informations de la facade, la porte le toit(couleur, forme, emplacement)'''
     reponse = {}
-    couleur = ''
+    couleur = 'pink'
     if random.randint(0, 3) == 0:
         couleur = 'red'
     elif random.randint(0, 3) == 1:
