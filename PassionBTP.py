@@ -34,7 +34,6 @@ def dessiner_porte(informations):
     x = information['numero']*180 - 285
     y = information['numero']*0
     rectangle(30, 50, porte, (x,y))
-    porte['emplacement'] = stockX(numero)
     
 def dessiner_immeuble(informations:dict):
     dessiner_facade(informations)
