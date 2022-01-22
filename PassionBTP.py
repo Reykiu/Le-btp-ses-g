@@ -29,7 +29,7 @@ def dessiner_facade(informations):
 def dessiner_porte(informations):
     porte = {}
     porte['écriture'] = 'black'
-    porte['fond'] = black
+    porte['fond'] = 'black'
     porte['épaisseur'] = 2
     
 def dessiner_immeuble(informations:dict):
