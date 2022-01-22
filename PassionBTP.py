@@ -1,4 +1,6 @@
-# Importation   #HUGO , sully , mathias
+#projet d'Hugo, Sullyvan et Mathias
+
+# Importation   
 from dessin import codecache as cc
 import random
 from dessin.codecache import rectangle
@@ -11,15 +13,9 @@ from dessin.codecache import carre
 # Fonction gestion des données
 def determiner_immeuble(numero):
     reponse = {}
-    if random.randint(0, 3) == 0 :
-        reponse['couleur_facade'] == 'blue'
-    elif random.randint(0, 3) == 1 :
-        reponse['couleur_facade'] == 'vert'
-    elif random.randint(0, 3) == 2:
-         reponse['couleur_facade'] == 'yellow'
-    elif random.randint(0, 3) == 3:
-         reponse['couleur_facade'] = 'red'
+    reponse['couleur_facade'] = 'red'
     reponse['couleur_porte'] = 'brown'
+    reponse['couleur_toit'] = 'lime'
     reponse['numero'] = numero
     reponse['nombre'] = random.randint(1, 5)
     return reponse
@@ -31,9 +27,10 @@ def dessiner_facade(informations):
     facade['écriture'] = 'black'
     facade['fond'] = informations['couleur_facade']
     facade['épaisseur'] = 2
+    hauteur_batiment = random.choice([160, 240, 320, 400, 480])
     x = informations['numero']*180 - 300
     y = informations['numero']*0
-    cc.rectangle(140, random.choice([160, 240, 320, 400, 480]), facade, (x,y))
+    cc.rectangle(140, hauteur_batiment, facade, (x,y))
     
 def dessiner_porte(informations):
     porte = {}
@@ -46,9 +43,25 @@ def dessiner_porte(informations):
     y = informations['numero'] * 0
     cc.rectangle(30, 50, porte, (x,y))
     
+def dessiner_toit(informations):
+    toit = {}
+    toit['écriture'] = 'black'
+    toit['fond'] = informations['couleur_toit']
+    toit['épaisseur'] = 2
+    taille_batiment = informations['numero']*180 - 300
+    hauteur_batiment = random.choice([160, 240, 320, 400, 480])
+    forme_toit = random.randint(0, 1)
+    x = taille_batiment
+    y = hauteur_batiment
+    if forme_toit == 0:
+        cc.triangle(140, 180,toit, (x,y))
+    else:
+        cc.arc_de_cercle(-70, 180, toit, (x,y))
+    
 def dessiner_immeuble(informations:dict):
     dessiner_facade(informations)
     dessiner_porte(informations)
+    dessiner_toit(informations)
     
 def stockX(numero):
     '''Prends la clé 'numero' dans le dictionnaire reponse de la fonction determiner_immeuble'''
