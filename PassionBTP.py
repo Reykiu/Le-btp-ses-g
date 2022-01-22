@@ -12,6 +12,7 @@ from dessin.codecache import carre
  
 # Fonction gestion des données
 def determiner_immeuble(numero):
+''' Determine les informations de la facade, la porte le toit(couleur, forme, emplacement)'''
     reponse = {}
     couleur = ''
     if random.randint(0, 3) == 0:
@@ -32,7 +33,7 @@ def determiner_immeuble(numero):
 # Fonctions d'interface graphique
  
 def dessiner_facade(informations):
-''' Determine les informations de la facade(couleur, forme, emplacement)'''
+'''Dessine la facade avec les informations contenu dans la fonction les informations determiner_immeuble(numero)'''
     facade = {}
     facade['écriture'] = 'black'
     facade['fond'] = informations['couleur_facade']
@@ -43,6 +44,7 @@ def dessiner_facade(informations):
     cc.rectangle(140, informations['hauteur_batiment'], facade, (x,y))
     
 def dessiner_porte(informations):
+'''Dessine la porte avec les informations contenu dans la fonction les informations determiner_immeuble(numero)'''
     porte = {}
     porte['écriture'] = 'black'
     porte['fond'] = informations['couleur_porte']
@@ -54,6 +56,7 @@ def dessiner_porte(informations):
     cc.rectangle(30, 50, porte, (x,y))
     
 def dessiner_toit(informations):
+'''Dessine le toit avec les informations contenu dans la fonction les informations determiner_immeuble(numero)'''
     toit = {}
     toit['écriture'] = 'black'
     toit['fond'] = informations['couleur_toit']
