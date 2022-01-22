@@ -14,7 +14,7 @@ from dessin.codecache import carre
 def determiner_immeuble(numero):
 ''' Determine les informations de la facade, la porte le toit(couleur, forme, emplacement)'''
     reponse = {}
-    couleur = 'pink'
+    couleur = ''
     if random.randint(0, 3) == 0:
         couleur = 'red'
     elif random.randint(0, 3) == 1:
@@ -33,7 +33,7 @@ def determiner_immeuble(numero):
 # Fonctions d'interface graphique
  
 def dessiner_facade(informations):
-'''Dessine la facade avec les informations contenu dans la fonction les informations determiner_immeuble(numero)'''
+'''Dessine la facade avec les informations contenu dans la fonction determiner_immeuble(numero)'''
     facade = {}
     facade['écriture'] = 'black'
     facade['fond'] = informations['couleur_facade']
@@ -44,7 +44,7 @@ def dessiner_facade(informations):
     cc.rectangle(140, informations['hauteur_batiment'], facade, (x,y))
     
 def dessiner_porte(informations):
-'''Dessine la porte avec les informations contenu dans la fonction les informations determiner_immeuble(numero)'''
+'''Dessine la porte avec les informations contenu dans la fonction determiner_immeuble(numero)'''
     porte = {}
     porte['écriture'] = 'black'
     porte['fond'] = informations['couleur_porte']
@@ -56,7 +56,7 @@ def dessiner_porte(informations):
     cc.rectangle(30, 50, porte, (x,y))
     
 def dessiner_toit(informations):
-'''Dessine le toit avec les informations contenu dans la fonction les informations determiner_immeuble(numero)'''
+'''Dessine le toit avec les informations contenu dans la fonction determiner_immeuble(numero)'''
     toit = {}
     toit['écriture'] = 'black'
     toit['fond'] = informations['couleur_toit']
@@ -70,6 +70,21 @@ def dessiner_toit(informations):
     else:
         cc.arc_de_cercle(-70, 180, toit, (x,y))
     
+def dessiner_fenetre(informations):
+    fenetre = {}
+    fenetre['ecriture'] =='black'
+    fenetre['fond'] = informations['couleur_fenetre']
+    fenetre['epaisseur'] = 2
+    taille_batiment = informations['numero'] * 180 -300
+    if hauteur_batiment == 160:
+        if distance_porte == 300: 
+                x = informations['numero'] * 180 - 245
+                y = informations['numero'] + 20
+                cc.carre(
+             
+   
+   
+   
 def dessiner_immeuble(informations:dict):
     dessiner_facade(informations)
     dessiner_porte(informations)
