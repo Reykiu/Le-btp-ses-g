@@ -33,7 +33,9 @@ def dessiner_porte(informations):
     porte['écriture'] = 'black'
     porte['fond'] = informations['couleur_porte']
     porte['épaisseur'] = 2
-    x = random.choice(information['numero']*180 - 285, informations['numero'] * 180 -245, informations['numero'] * 180 - 190)
+    taille_batiment = informations['numero']*180
+    distance_porte = random.choice([300,245,190])
+    x = taille_batiment - distance_porte
     y = informations['numero'] * 0
     cc.rectangle(30, 50, porte, (x,y))
     
