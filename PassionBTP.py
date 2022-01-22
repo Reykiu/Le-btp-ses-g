@@ -1,4 +1,5 @@
 # Importation   #HUGO , sully , mathias
+from dessin import codecache as cc
 import random
 from dessin.codecache import rectangle
 from dessin.codecache import rectangle2
@@ -24,7 +25,7 @@ def dessiner_facade(informations):
     facade['épaisseur'] = 2
     x = informations['numero']*180 - 300
     y = informations['numero']*0
-    rectangle(140, random.choice([160, 240, 320, 400, 480]), facade, (x,y))
+    cc.rectangle(140, random.choice([160, 240, 320, 400, 480]), facade, (x,y))
     
 def dessiner_porte(informations):
     porte = {}
@@ -33,7 +34,7 @@ def dessiner_porte(informations):
     porte['épaisseur'] = 2
     x = random.choice(information['numero']*180 - 285, informations['numero'] * 180 -245, informations['numero'] * 180 - 190)
     y = informations['numero'] * 0
-    rectangle(30, 50, porte, (x,y))
+    cc.rectangle(30, 50, porte, (x,y))
     
 def dessiner_immeuble(informations:dict):
     dessiner_facade(informations)
