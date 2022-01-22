@@ -74,30 +74,23 @@ def dessiner_fenetre(informations):
     fenetre = {}
     h = 20 
     t = 0
-    fenetre['ecriture'] =='black'
-    fenetre['fond'] = informations['couleur_fenetre']
-    fenetre['epaisseur'] = 2
+    fenetre['écriture'] = 'black'
+    fenetre['fond'] = 'blue'
+    fenetre['épaisseur'] = 2
     taille_batiment = informations['numero'] * 180 -300
     for d in range(100):
-        while h < hauteur_batiment:
+        while h < informations['hauteur_batiment']:
             while t < 140:
                 x = informations['numero'] * 180 - 300 + t
                 y = informations['numero'] * 0
                 cc.carre(30, fenetre, (x, y))
-                t = t + 10
-        
-        
-    
+                t = t + 55
+             
 def dessiner_immeuble(informations:dict):
     dessiner_facade(informations)
     dessiner_porte(informations)
     dessiner_toit(informations)
-    
-def stockX(numero):
-    '''Prends la clé 'numero' dans le dictionnaire reponse de la fonction determiner_immeuble'''
-    x0 = numero * 200 - 200
-    y0 = 0
-    return (x0, y0)
+    dessiner_fenetre(informations)
     
 # Programme principal
  
