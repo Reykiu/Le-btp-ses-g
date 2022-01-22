@@ -11,7 +11,14 @@ from dessin.codecache import carre
 # Fonction gestion des données
 def determiner_immeuble(numero):
     reponse = {}
-    reponse['couleur_facade'] = 'red'
+    if random.randint(0, 3) == 0 :
+        reponse['couleur_facade'] == 'blue'
+    elif random.randint(0, 3) == 1 :
+        reponse['couleur_facade'] == 'vert'
+    elif random.randint(0, 3) == 2:
+         reponse['couleur_facade'] == 'yellow'
+    elif random.randint(0, 3) == 3:
+         reponse['couleur_facade'] = 'red'
     reponse['couleur_porte'] = 'brown'
     reponse['numero'] = numero
     reponse['nombre'] = random.randint(1, 5)
