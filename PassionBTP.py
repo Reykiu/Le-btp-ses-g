@@ -13,9 +13,16 @@ from dessin.codecache import carre
 # Fonction gestion des données
 def determiner_immeuble(numero):
     reponse = {}
-    reponse['couleur_facade'] = 'red'
+    if random.randint(0, 3) == 0:
+        reponse['couleur_facade'] = 'red'
+    elif random.randint(0, 3) == 1:
+        reponse['couleur_facade'] = 'blue'
+    elif random.randint(0, 3) == 2:
+        reponse['couleur_facade'] = 'green'
+    elif random.randint(0, 3) == 3:
+        reponse['couleur_facade'] = 'yellow'
     reponse['couleur_porte'] = 'brown'
-    reponse['couleur_toit'] = 'lime'
+    reponse['couleur_toit'] = 'black'
     reponse['numero'] = numero
     reponse['hauteur_batiment'] = random.choice([160, 240, 320, 400, 480])
     return reponse
@@ -23,13 +30,14 @@ def determiner_immeuble(numero):
 # Fonctions d'interface graphique
  
 def dessiner_facade(informations):
+''' Determine les informations de la facade(couleur, forme, emplacement)'''
     facade = {}
     facade['écriture'] = 'black'
     facade['fond'] = informations['couleur_facade']
     facade['épaisseur'] = 2
     hauteur_batiment = random.choice([160, 240, 320, 400, 480])
     x = informations['numero']*180 - 300
-    y = informations['numero']*0
+    y = informations['numero'] * 0
     cc.rectangle(140, informations['hauteur_batiment'], facade, (x,y))
     
 def dessiner_porte(informations):
