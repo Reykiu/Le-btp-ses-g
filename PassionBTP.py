@@ -80,11 +80,52 @@ def dessiner_fenetre(informations):
         if distance_porte == 300: 
                 x = informations['numero'] * 180 - 245
                 y = informations['numero'] + 20
-                cc.carre(
-             
-   
-   
-   
+                cc.carre(30, fenetre, (x, y))
+                x = informations['numero'] * 180 - 190
+                y = informations['numero'] + 20
+                cc.carre(30, fenetre, (x, y))
+                x = informations['numero'] * 180 - 300
+                y = informations['numero'] + 100
+                cc.carre(30, fenetre, (x, y))
+                x = informations['numero'] * 180 - 245
+                y = informations['numero'] + 100
+                cc.carre(30, fenetre, (x, y))
+                x = informations['numero'] * 180 - 190
+                y = informations['numero'] + 100
+               cc.carre(30, fenetre, (x, y))
+        if distance_porte == 245: 
+                x = informations['numero'] * 180 - 300
+                y = informations['numero'] + 20
+                cc.carre(30, fenetre, (x, y))
+                x = informations['numero'] * 180 - 190
+                y = informations['numero'] + 20
+                cc.carre(30, fenetre, (x, y))
+                x = informations['numero'] * 180 - 300
+                y = informations['numero'] + 100
+                cc.carre(30, fenetre, (x, y))
+                x = informations['numero'] * 180 - 245
+                y = informations['numero'] + 100
+                cc.carre(30, fenetre, (x, y))
+                x = informations['numero'] * 180 - 100
+                y = informations['numero'] + 100
+                cc.carre(30, fenetre, (x, y))
+        if distance_porte == 190: 
+                x = informations['numero'] * 180 - 300
+                y = informations['numero'] + 20
+                cc.carre(30, fenetre, (x, y))
+                x = informations['numero'] * 180 - 245
+                y = informations['numero'] + 20
+                cc.carre(30, fenetre, (x, y))
+                x = informations['numero'] * 180 - 300
+                y = informations['numero'] + 100
+                cc.carre(30, fenetre, (x, y))
+                x = informations['numero'] * 180 - 245
+                y = informations['numero'] + 100
+                cc.carre(30, fenetre, (x, y))
+                x = informations['numero'] * 180 - 190
+                y = informations['numero'] + 100
+                cc.carre(30, fenetre, (x, y)
+    
 def dessiner_immeuble(informations:dict):
     dessiner_facade(informations)
     dessiner_porte(informations)
