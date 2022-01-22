@@ -72,59 +72,21 @@ def dessiner_toit(informations):
     
 def dessiner_fenetre(informations):
     fenetre = {}
+    h = 20 
+    t = 0
     fenetre['ecriture'] =='black'
     fenetre['fond'] = informations['couleur_fenetre']
     fenetre['epaisseur'] = 2
     taille_batiment = informations['numero'] * 180 -300
-    if hauteur_batiment == 160:
-        if distance_porte == 300: 
-                x = informations['numero'] * 180 - 245
-                y = informations['numero'] + 20
+    for d in range(100):
+        while h < hauteur_batiment:
+            while t < 140:
+                x = informations['numero'] * 180 - 300 + t
+                y = informations['numero'] * 0
                 cc.carre(30, fenetre, (x, y))
-                x = informations['numero'] * 180 - 190
-                y = informations['numero'] + 20
-                cc.carre(30, fenetre, (x, y))
-                x = informations['numero'] * 180 - 300
-                y = informations['numero'] + 100
-                cc.carre(30, fenetre, (x, y))
-                x = informations['numero'] * 180 - 245
-                y = informations['numero'] + 100
-                cc.carre(30, fenetre, (x, y))
-                x = informations['numero'] * 180 - 190
-                y = informations['numero'] + 100
-               cc.carre(30, fenetre, (x, y))
-        if distance_porte == 245: 
-                x = informations['numero'] * 180 - 300
-                y = informations['numero'] + 20
-                cc.carre(30, fenetre, (x, y))
-                x = informations['numero'] * 180 - 190
-                y = informations['numero'] + 20
-                cc.carre(30, fenetre, (x, y))
-                x = informations['numero'] * 180 - 300
-                y = informations['numero'] + 100
-                cc.carre(30, fenetre, (x, y))
-                x = informations['numero'] * 180 - 245
-                y = informations['numero'] + 100
-                cc.carre(30, fenetre, (x, y))
-                x = informations['numero'] * 180 - 100
-                y = informations['numero'] + 100
-                cc.carre(30, fenetre, (x, y))
-        if distance_porte == 190: 
-                x = informations['numero'] * 180 - 300
-                y = informations['numero'] + 20
-                cc.carre(30, fenetre, (x, y))
-                x = informations['numero'] * 180 - 245
-                y = informations['numero'] + 20
-                cc.carre(30, fenetre, (x, y))
-                x = informations['numero'] * 180 - 300
-                y = informations['numero'] + 100
-                cc.carre(30, fenetre, (x, y))
-                x = informations['numero'] * 180 - 245
-                y = informations['numero'] + 100
-                cc.carre(30, fenetre, (x, y))
-                x = informations['numero'] * 180 - 190
-                y = informations['numero'] + 100
-                cc.carre(30, fenetre, (x, y)
+                t = t + 10
+        
+        
     
 def dessiner_immeuble(informations:dict):
     dessiner_facade(informations)
