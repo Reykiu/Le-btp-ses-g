@@ -31,6 +31,7 @@ def dessiner_porte(informations):
     porte['écriture'] = 'black'
     porte['fond'] = 'black'
     porte['épaisseur'] = 2
+    porte['emplacement'] = stockX(numero)
     
 def dessiner_immeuble(informations:dict):
     dessiner_facade(informations)
