@@ -31,12 +31,13 @@ def dessiner_porte(informations):
     porte['écriture'] = 'black'
     porte['fond'] = informations['couleur_porte']
     porte['épaisseur'] = 2
-    x = information['numero']*180 - 285
-    y = information['numero']*0
+    x = random.choice(information['numero']*180 - 285, informations['numero'] * 180 -245, informations['numero'] * 180 - 190)
+    y = informations['numero'] * 0
     rectangle(30, 50, porte, (x,y))
     
 def dessiner_immeuble(informations:dict):
     dessiner_facade(informations)
+    dessiner_porte(informations)
     
 def stockX(numero):
     '''Prends la clé 'numero' dans le dictionnaire reponse de la fonction determiner_immeuble'''
