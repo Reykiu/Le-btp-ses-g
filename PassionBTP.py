@@ -151,21 +151,6 @@ def dessiner_toit(informations):
         cc.triangle(141, 100,toit, (x,y))
     else:
         cc.arc_de_cercle(-71, 180, toit, (x,y))
-        
-def dessiner_immeuble(informations:dict):
-    dessiner_facade(informations)
-    dessiner_porte(informations)
-    dessiner_toit(informations)
-
-    
-# Programme principal
- 
-for x in range(4):
-    informations = determiner_immeuble(x)
-    dessiner_immeuble(informations)
-
-   
-   
 
 def dessiner_fenetre(informations):
     fenetre = {}
@@ -176,11 +161,25 @@ def dessiner_fenetre(informations):
     fenetre['épaisseur'] = 2
     taille_batiment = informations['numero'] * 180 -300
     for d in range(100):
-        while h < informations['hauteur_batiment']:
             while t < 140:
                 x = informations['numero'] * 180 - 300 + t
-                y = informations['numero'] * 0
+                y = informations['numero'] * 20 + h
                 cc.carre(30, fenetre, (x, y))
                 t = t + 55
+                if t >= 140:
+                    h = h + 55
+        
+def dessiner_immeuble(informations:dict):
+    dessiner_facade(informations)
+    dessiner_porte(informations)
+    dessiner_fenetre(informations)
+    dessiner_toit(informations)
+
+    
+# Programme principal
+ 
+for x in range(4):
+    informations = determiner_immeuble(x)
+    dessiner_immeuble(informations)
 
    
