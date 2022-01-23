@@ -163,3 +163,24 @@ def dessiner_immeuble(informations:dict):
 for x in range(4):
     informations = determiner_immeuble(x)
     dessiner_immeuble(informations)
+
+   
+   
+
+def dessiner_fenetre(informations):
+    fenetre = {}
+    h = 20 
+    t = 0
+    fenetre['écriture'] = 'black'
+    fenetre['fond'] = 'blue'
+    fenetre['épaisseur'] = 2
+    taille_batiment = informations['numero'] * 180 -300
+    for d in range(100):
+        while h < informations['hauteur_batiment']:
+            while t < 140:
+                x = informations['numero'] * 180 - 300 + t
+                y = informations['numero'] * 0
+                cc.carre(30, fenetre, (x, y))
+                t = t + 55
+
+   
