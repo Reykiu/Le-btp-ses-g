@@ -98,6 +98,7 @@ def trace_arc(feutre, rayon, angle):
  
     '''
     feutre.begin_fill()
+    feutre.left(90)
     feutre.circle(rayon, angle)
     feutre.end_fill()
     feutre.hideturtle()
@@ -181,7 +182,7 @@ def triangle(largeur, hauteur, infos, coordonnees):
 if __name__ == '__main__':
  
     divers1 = {'écriture':'blue', 'fond':'#FF88FF', 'épaisseur':5}
-    arc_de_cercle(75, 360, divers1, (200,-200))
+    arc_de_cercle(75, 180, divers1, (200,-200))
     
     divers2 = {'écriture':'black', 'fond':'blue', 'épaisseur':2}
     carre(30, divers2, (25,50))
