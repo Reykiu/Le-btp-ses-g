@@ -156,6 +156,7 @@ def dessiner_fenetre(informations):
     fenetre = {}
     h = 20 
     t = 0
+    hauteur_batiment = informations['hauteur_batiment']
     fenetre['écriture'] = 'black'
     fenetre['fond'] = 'blue'
     fenetre['épaisseur'] = 2
@@ -168,11 +169,16 @@ def dessiner_fenetre(informations):
                 t = t + 55
                 if t >= 140:
                     h = h + 55
+                    t = 0
+                elif h > hauteur_batiment:
+                    h = 20
+                    t = 0
+                
         
 def dessiner_immeuble(informations:dict):
     dessiner_facade(informations)
-    dessiner_porte(informations)
     dessiner_fenetre(informations)
+    dessiner_porte(informations)
     dessiner_toit(informations)
 
     
@@ -183,3 +189,6 @@ for x in range(4):
     dessiner_immeuble(informations)
 
    
+   
+
+
