@@ -47,7 +47,8 @@ def determiner_immeuble(numero):
         couleur_facade = 'cadetblue'
     reponse['couleur_facade'] = couleur_facade
     '''Définit aléatoirement la couleur de la facade'''
-    couleur_porte = random.randint(0, 14)
+    couleur_porte = 'brown'
+    # le reste a été utilisé dans la phase beta de notre projet mais n'est plus utile désormais
     if couleur_porte == 0:
         couleur_porte = 'darkorchid'
     elif couleur_porte == 1:
@@ -156,23 +157,71 @@ def dessiner_fenetre(informations):
     fenetre = {}
     h = 20 
     t = 0
-    hauteur_batiment = informations['hauteur_batiment']
+    hauteur = informations['hauteur_batiment']
     fenetre['écriture'] = 'black'
     fenetre['fond'] = 'blue'
     fenetre['épaisseur'] = 2
     taille_batiment = informations['numero'] * 180 -300
-    for d in range(100):
-            while t < 140:
-                x = informations['numero'] * 180 - 300 + t
-                y = informations['numero'] * 20 + h
-                cc.carre(30, fenetre, (x, y))
-                t = t + 55
-                if t >= 140:
-                    h = h + 55
-                    t = 0
-                elif h > hauteur_batiment:
-                    h = 20
-                    t = 0
+    if informations['hauteur_batiment'] == 160:
+        h = 20 
+        t = 0
+        for d in range(6):
+            x = informations['numero'] * 180 - 300 + t
+            y = informations['numero'] * 20 + h
+            cc.carre(30, fenetre, (x, y))
+            t = t + 55
+            if t >= 140:
+                h = h + 55
+                t = 0
+                    
+    if informations['hauteur_batiment'] == 240:
+        h = 20 
+        t = 0
+        for d in range(9):
+            x = informations['numero'] * 180 - 300 + t
+            y = informations['numero'] * 20 +h
+            cc.carre(30, fenetre, (x, y))
+            t = t + 55
+            if t >= 140:
+                h = h + 55
+                t = 0
+                 
+    if informations['hauteur_batiment'] == 320:
+        h = 20 
+        t = 0
+        for d in range(15):
+            x = informations['numero'] * 180 - 300 + t
+            y = informations['numero'] * 20 +h
+            cc.carre(30, fenetre, (x, y))
+            t = t + 55
+            if t >= 140:
+                 h = h + 55
+                 t = 0
+
+    if informations['hauteur_batiment'] == 400:
+        h = 20 
+        t = 0
+        for d in range(21):
+            x = informations['numero'] * 180 - 300 + t
+            y = informations['numero'] * 20 + h
+            cc.carre(30, fenetre, (x, y))
+            t = t + 55
+            if t >= 140:
+                h = h + 55
+                t = 0
+                
+    if informations['hauteur_batiment'] == 480:
+        h = 20 
+        t = 0
+        for d in range(27):
+            x = informations['numero'] * 180 - 300 + t
+            y = informations['numero'] * 20 + h
+            cc.carre(30, fenetre, (x, y))
+            t = t + 55
+            if t >= 140:
+                h = h + 55
+                t = 0
+                    
                 
         
 def dessiner_immeuble(informations:dict):
@@ -187,6 +236,12 @@ def dessiner_immeuble(informations:dict):
 for x in range(4):
     informations = determiner_immeuble(x)
     dessiner_immeuble(informations)
+
+   
+   
+
+
+
 
    
    
