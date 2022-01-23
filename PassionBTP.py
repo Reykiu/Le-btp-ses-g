@@ -13,6 +13,7 @@ from dessin.codecache import carre
 # Fonction gestion des données
 def determiner_immeuble(numero):
     reponse = {}
+  
     '''Définit aléatoirement la couleur de la facade'''
     couleur_facade = random.randint(0, 14)
     if couleur_facade == 0:
@@ -45,6 +46,7 @@ def determiner_immeuble(numero):
         couleur_facade = 'dimgrey'
     elif couleur_facade == 14:
         couleur_facade = 'cadetblue'
+      
     reponse['couleur_facade'] = couleur_facade
     '''Définit aléatoirement la couleur de la porte'''
     couleur_porte = random.randint(0, 14)
@@ -78,6 +80,7 @@ def determiner_immeuble(numero):
         couleur_porte = 'dimgrey'
     elif couleur_porte == 14:
         couleur_porte = 'cadetblue'
+      
     reponse['couleur_porte'] = couleur_porte
     '''Définit aléatoirement la couleur de la toit'''
     couleur_toit = random.randint(0, 14)
@@ -112,14 +115,16 @@ def determiner_immeuble(numero):
     elif couleur_toit == 14:
         couleur_toit = 'cadetblue'
     reponse['couleur_toit'] = couleur_toit
+    
     reponse['numero'] = numero
-    reponse['hauteur_batiment'] = random.choice([160, 240, 320, 400, 480])
+    reponse['hauteur_batiment'] = random.choice([160, 240, 320, 400, 480])  #Definit aléatoirement la hauteur en pixel du batiment
     return reponse
  
 # Fonctions d'interface graphique
  
 def dessiner_facade(informations):
-    facade = {}
+ '''Fonction servant à dessiner la façade des batiments'''
+    facade = {}  #Stock les differentes informations dans un tuple
     facade['écriture'] = 'black'
     facade['fond'] = informations['couleur_facade']
     facade['épaisseur'] = 2
@@ -128,7 +133,8 @@ def dessiner_facade(informations):
     cc.rectangle(140, informations['hauteur_batiment'], facade, (x,y))
     
 def dessiner_porte(informations):
-    porte = {}
+ '''Fonction servant à dessiner la porte des batiments'''
+    porte = {}  #Stock les differentes informations dans un tuple
     porte['écriture'] = 'black'
     porte['fond'] = informations['couleur_porte']
     porte['épaisseur'] = 2
@@ -139,12 +145,13 @@ def dessiner_porte(informations):
     cc.rectangle(30, 50, porte, (x,y))
     
 def dessiner_toit(informations):
-    toit = {}
+ '''Fonction servant à dessiner le toit des batiments'''
+    toit = {}  #Stock les differentes informations dans un tuple
     toit['écriture'] = 'black'
     toit['fond'] = informations['couleur_toit']
     toit['épaisseur'] = 2
     taille_batiment = informations['numero']*180 - 300
-    forme_toit = random.randint(0, 1)
+    forme_toit = random.randint(0, 1)  '''Tire aléatoirement la forme du toit '''
     x = taille_batiment - 1
     y = informations['hauteur_batiment'] - 250
     if forme_toit == 0:
@@ -153,13 +160,14 @@ def dessiner_toit(informations):
         cc.arc_de_cercle(-71, 180, toit, (x,y))
         
 def dessiner_fenetre(informations):
-    fenetre = {}
+ '''Fonction servant à dessiner les fenetres des batiments'''
+    fenetre = {}  #Stock les differentes informations dans un tuple
     fenetre['écriture'] = 'black'
     fenetre['fond'] = 'skyblue'
     fenetre['épaisseur'] = 2
-    taille_batiment = informations['numero']*180 - 300
-    hauteur_batiment = informations['hauteur_batiment']
-    if hauteur_batiment == 160:
+    taille_batiment = informations['numero']*180 - 300  #Vas rechercher l'information "numero" dans "determiner_immeuble
+    hauteur_batiment = informations['hauteur_batiment']  #Vas rechercher l'information "hauteur_batiment" dans "determiner_immeuble
+    if hauteur_batiment == 160: #S'execute si la façade fais 160 pixels de haut
         h = 60
         for x in range(2):
             x = taille_batiment
@@ -172,7 +180,7 @@ def dessiner_fenetre(informations):
             y = (hauteur_batiment * 0 + h) - 250
             cc.carre(30, fenetre, (x,y))
             h = h + 60
-    if hauteur_batiment == 240:
+    if hauteur_batiment == 240: #S'execute si la façade fais 240 pixels de haut
         h = 65
         for x in range(3):
             x = taille_batiment
@@ -185,7 +193,7 @@ def dessiner_fenetre(informations):
             y = (hauteur_batiment * 0 + h) - 250
             cc.carre(30, fenetre, (x,y))
             h = h + 65
-    if hauteur_batiment == 320:
+    if hauteur_batiment == 320: #S'execute si la façade fais 320 pixels de haut
         h = 60
         for x in range(5):
             x = taille_batiment
@@ -198,7 +206,7 @@ def dessiner_fenetre(informations):
             y = (hauteur_batiment * 0 + h) - 250
             cc.carre(30, fenetre, (x,y))
             h = h + 55
-    if hauteur_batiment == 400:
+    if hauteur_batiment == 400: #S'execute si la façade fais 400 pixels de haut
         h = 60
         for x in range(6):
             x = taille_batiment
@@ -211,7 +219,7 @@ def dessiner_fenetre(informations):
             y = (hauteur_batiment * 0 + h) - 250
             cc.carre(30, fenetre, (x,y))
             h = h + 60
-    if hauteur_batiment == 480:
+    if hauteur_batiment == 480: #S'execute si la façade fais 480 pixels de haut
         h = 60
         for x in range(8):
             x = taille_batiment
@@ -226,6 +234,7 @@ def dessiner_fenetre(informations):
             h = h + 55
         
 def dessiner_immeuble(informations:dict):
+ '''Fonction qui vas servir à executer les differentes fonctions de dessin dans l'ordre (façade -> porte -> toit -> fenetre) afin de dessiner les batiments'''
     dessiner_facade(informations)
     dessiner_porte(informations)
     dessiner_toit(informations)
@@ -234,5 +243,6 @@ def dessiner_immeuble(informations:dict):
 # Programme principal
  
 for x in range(4):
+ '''Execution de la fonction dessiner_immeuble en boucle un nombre de fois définit dans le "range()"'''
     informations = determiner_immeuble(x)
     dessiner_immeuble(informations)
