@@ -1,11 +1,9 @@
 '''Ce fichier permet de dessiner deux formes à l'aide des deux fonctions suivantes
  
-+ triangle(cote, infos, coordonnees)
 + arc_de_cercle(rayon, angle, infos, coordonnees)
  
 Exemples d'utilisation :
 >>> divers1 = {'écriture':'blue', 'fond':'#FF88FF', 'épaisseur':5}
->>> triangle(50, divers1, (50,100))
 >>> arc_de_cercle(75, 360, divers1, (200,-200))
  
 '''
@@ -32,7 +30,7 @@ def nouveau_stylo(ecriture, fond, largeur):
     feutre.color(ecriture)
     feutre.fillcolor(fond)
     feutre.pensize(largeur)
-    feutre.speed(5)
+    feutre.speed(100)
     return feutre
  
 def deplacer(feutre, x, y):
@@ -51,6 +49,16 @@ def deplacer(feutre, x, y):
  
     
 def trace_triangle(feutre, largeur, hauteur, x, y):
+ '''Trace un arc de cercle à l'aide du crayon feutre
+ 
+    :: param ftr(Turtle)    :: la référence du crayon
+    :: param largeur(int)     :: la valeur en pixel de la largeur du triangle
+    :: param longueur(int)     :: la valeur en pixel de la longueur du triangle
+    la longueur et la largeur du triangles, couplé au calcul avec x et y permettent de tracer un triangle isocèle
+    :: return (None)        :: fonction sans retour
+    .. effet de bord        :: modifie l'état de ftr
+ 
+    '''
     feutre.begin_fill()
     feutre.goto(x+largeur, y)
     feutre.goto(x+largeur//2, y+hauteur)
@@ -59,6 +67,14 @@ def trace_triangle(feutre, largeur, hauteur, x, y):
     feutre.hideturtle()
     
 def trace_carre(feutre, cote):
+ '''Trace un arc de cercle à l'aide du crayon feutre
+ 
+    :: param ftr(Turtle)    :: la référence du crayon
+    :: param cote(int)     :: la valeur en pixel des cotes du carre
+    :: return (None)        :: fonction sans retour
+    .. effet de bord        :: modifie l'état de ftr
+ 
+    '''
     feutre.begin_fill()
     for x in range(4):
         feutre.forward(cote)
@@ -68,6 +84,15 @@ def trace_carre(feutre, cote):
     
     
 def trace_rectangle(feutre, largeur, hauteur):
+ '''Trace un arc de cercle à l'aide du crayon feutre
+ 
+    :: param ftr(Turtle)    :: la référence du crayon
+    :: param largeur(int)     :: la valeur en pixel de la largeur du reclangle
+    :: param longueur(int)     :: la valeur en pixel de la longueur du rectangle
+    :: return (None)        :: fonction sans retour
+    .. effet de bord        :: modifie l'état de ftr
+ 
+    '''
     feutre.begin_fill()
     for x in range(2):
         feutre.forward(largeur)
@@ -78,6 +103,15 @@ def trace_rectangle(feutre, largeur, hauteur):
     feutre.hideturtle()
     
 def trace_rectangle2(feutre, largeur, hauteur):
+     '''Trace un arc de cercle à l'aide du crayon feutre
+ 
+    :: param ftr(Turtle)    :: la référence du crayon
+    :: param largeur(int)     :: la valeur en pixel de la largeur du reclangle
+    :: param longueur(int)     :: la valeur en pixel de la longueur du rectangle
+    :: return (None)        :: fonction sans retour
+    .. effet de bord        :: modifie l'état de ftr
+ 
+    '''
     feutre.begin_fill()
     for x in range(2):
         feutre.forward(largeur)
@@ -92,7 +126,7 @@ def trace_arc(feutre, rayon, angle):
  
     :: param ftr(Turtle)    :: la référence du crayon
     :: param rayon(int)     :: la valeur en pixel du rayon
-    :: param angle(int)     :: l'angle à tracer (360 pour un cercle)
+    :: param angle(int)     :: l'angle à tracer (180 pour un demi-cercle)
     :: return (None)        :: fonction sans retour
     .. effet de bord        :: modifie l'état de ftr
  
@@ -129,6 +163,13 @@ def arc_de_cercle(rayon, angle, infos, coordonnees):
 
 
 def carre(cote, infos, coordonnees):
+ '''Trace un carre à partir des infos et aux bonnees coordonnées
+ 
+    :: param cote(int)                    :: la valeur en pixel d'un cote
+    :: param infos(dict)                   :: un dictionnaire {"écriture":str, "fond":str, "épaisseur":int}    
+    :: param coordonnees(tuple (int,int) ) :: un tuple (x,y)
+ 
+    '''
     ecriture = infos['écriture']
     fond = infos['fond']
     epaisseur = infos['épaisseur']
@@ -141,6 +182,15 @@ def carre(cote, infos, coordonnees):
     
     
 def rectangle(largeur, hauteur, infos, coordonnees):
+ '''Trace un rectangle à partir des infos et aux bonnees coordonnées
+ 
+    :: param largeur(int)                    :: la valeur en pixel de la largeur
+    :: param hauteur(int)                    :: la valeur en pixel de la hauteur
+    :: param infos(dict)                   :: un dictionnaire {"écriture":str, "fond":str, "épaisseur":int}    
+    :: param coordonnees(tuple (int,int) ) :: un tuple (x,y)
+    Cette fonction sert à dessiner la facade
+ 
+    '''
     ecriture = infos['écriture']
     fond = infos['fond']
     epaisseur = infos['épaisseur']
@@ -153,6 +203,15 @@ def rectangle(largeur, hauteur, infos, coordonnees):
     
     
 def rectangle2(largeur, hauteur, infos, coordonnees):
+ '''Trace un rectangle à partir des infos et aux bonnees coordonnées
+ 
+    :: param largeur(int)                    :: la valeur en pixel de la largeur
+    :: param hauteur(int)                    :: la valeur en pixel de la hauteur
+    :: param infos(dict)                   :: un dictionnaire {"écriture":str, "fond":str, "épaisseur":int}    
+    :: param coordonnees(tuple (int,int) ) :: un tuple (x,y)
+    Cette fonction sert à dessiner les portes
+ 
+    '''
     ecriture = infos['écriture']
     fond = infos['fond']
     epaisseur = infos['épaisseur']
@@ -165,6 +224,14 @@ def rectangle2(largeur, hauteur, infos, coordonnees):
 
 
 def triangle(largeur, hauteur, infos, coordonnees):
+ '''Trace un rectangle à partir des infos et aux bonnees coordonnées
+ 
+    :: param largeur(int)                    :: la valeur en pixel de la largeur
+    :: param hauteur(int)                    :: la valeur en pixel de la hauteur
+    :: param infos(dict)                   :: un dictionnaire {"écriture":str, "fond":str, "épaisseur":int}    
+    :: param coordonnees(tuple (int,int) ) :: un tuple (x,y)
+ 
+    '''
     ecriture = infos['écriture']
     fond = infos['fond']
     epaisseur = infos['épaisseur']
