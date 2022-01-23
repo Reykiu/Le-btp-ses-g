@@ -12,20 +12,106 @@ from dessin.codecache import carre
  
 # Fonction gestion des données
 def determiner_immeuble(numero):
-''' Determine les informations de la facade, la porte le toit(couleur, forme, emplacement)'''
     reponse = {}
-    couleur = ''
-    if random.randint(0, 3) == 0:
-        couleur = 'red'
-    elif random.randint(0, 3) == 1:
-        couleur = 'blue'
-    elif random.randint(0, 3) == 2:
-        couleur = 'green'
-    elif random.randint(0, 3) == 3:
-        couleur = 'yellow'
-    reponse['couleur_facade'] = couleur
-    reponse['couleur_porte'] = 'brown'
-    reponse['couleur_toit'] = 'black'
+    '''Définit aléatoirement la couleur de la facade'''
+    couleur_facade = random.randint(0, 14)
+    if couleur_facade == 0:
+        couleur_facade = 'darkorchid'
+    elif couleur_facade == 1:
+        couleur_facade = 'darksalmon'
+    elif couleur_facade == 2:
+        couleur_facade = 'mediumaquamarine'
+    elif couleur_facade == 3:
+        couleur_facade = 'wheat'
+    elif couleur_facade == 4:
+        couleur_facade = 'aqua'
+    elif couleur_facade == 5:
+        couleur_facade = 'peru'
+    elif couleur_facade == 6:
+        couleur_facade = 'palegreen'
+    elif couleur_facade == 7:
+        couleur_facade = 'darkslategrey'
+    elif couleur_facade == 8:
+        couleur_facade = 'olivedrab'
+    elif couleur_facade == 9:
+        couleur_facade = 'paleturquoise'
+    elif couleur_facade == 10:
+        couleur_facade = 'firebrick'
+    elif couleur_facade == 11:
+        couleur_facade = 'deeppink'
+    elif couleur_facade == 12:
+        couleur_facade = 'khaki'
+    elif couleur_facade == 13:
+        couleur_facade = 'dimgrey'
+    elif couleur_facade == 14:
+        couleur_facade = 'cadetblue'
+    reponse['couleur_facade'] = couleur_facade
+    '''Définit aléatoirement la couleur de la facade'''
+    couleur_porte = random.randint(0, 14)
+    if couleur_porte == 0:
+        couleur_porte = 'darkorchid'
+    elif couleur_porte == 1:
+        couleur_porte = 'darksalmon'
+    elif couleur_porte == 2:
+        couleur_porte = 'mediumaquamarine'
+    elif couleur_porte == 3:
+        couleur_porte = 'wheat'
+    elif couleur_porte == 4:
+        couleur_porte = 'aqua'
+    elif couleur_porte == 5:
+        couleur_porte = 'peru'
+    elif couleur_porte == 6:
+        couleur_porte = 'palegreen'
+    elif couleur_porte == 7:
+        couleur_porte = 'darkslategrey'
+    elif couleur_porte == 8:
+        couleur_porte = 'olivedrab'
+    elif couleur_porte == 9:
+        couleur_porte = 'paleturquoise'
+    elif couleur_porte == 10:
+        couleur_porte = 'firebrick'
+    elif couleur_porte == 11:
+        couleur_porte = 'deeppink'
+    elif couleur_porte == 12:
+        couleur_porte = 'khaki'
+    elif couleur_porte == 13:
+        couleur_porte = 'dimgrey'
+    elif couleur_porte == 14:
+        couleur_porte = 'cadetblue'
+    reponse['couleur_porte'] = couleur_porte
+    '''Définit aléatoirement la couleur de la facade'''
+    couleur_toit = random.randint(0, 14)
+    if couleur_toit == 0:
+        couleur_toit = 'darkorchid'
+    elif couleur_toit == 1:
+        couleur_toit = 'darksalmon'
+    elif couleur_toit == 2:
+        couleur_toit = 'mediumaquamarine'
+    elif couleur_toit == 3:
+        couleur_toit = 'wheat'
+    elif couleur_toit == 4:
+        couleur_toit = 'aqua'
+    elif couleur_toit == 5:
+        couleur_toit = 'peru'
+    elif couleur_toit == 6:
+        couleur_toit = 'palegreen'
+    elif couleur_toit == 7:
+        couleur_toit = 'darkslategrey'
+    elif couleur_toit == 8:
+        couleur_toit = 'olivedrab'
+    elif couleur_toit == 9:
+        couleur_toit = 'paleturquoise'
+    elif couleur_toit == 10:
+        couleur_toit = 'firebrick'
+    elif couleur_toit == 11:
+        couleur_toit = 'deeppink'
+    elif couleur_toit == 12:
+        couleur_toit = 'khaki'
+    elif couleur_toit == 13:
+        couleur_toit = 'dimgrey'
+    elif couleur_toit == 14:
+        couleur_toit = 'cadetblue'
+    reponse['couleur_toit'] = couleur_toit
     reponse['numero'] = numero
     reponse['hauteur_batiment'] = random.choice([160, 240, 320, 400, 480])
     return reponse
@@ -33,18 +119,15 @@ def determiner_immeuble(numero):
 # Fonctions d'interface graphique
  
 def dessiner_facade(informations):
-'''Dessine la facade avec les informations contenu dans la fonction determiner_immeuble(numero)'''
     facade = {}
     facade['écriture'] = 'black'
     facade['fond'] = informations['couleur_facade']
     facade['épaisseur'] = 2
-    hauteur_batiment = random.choice([160, 240, 320, 400, 480])
-    x = informations['numero']*180 - 300
+    x = informations['numero'] * 180 - 300
     y = informations['numero'] * 0
     cc.rectangle(140, informations['hauteur_batiment'], facade, (x,y))
     
 def dessiner_porte(informations):
-'''Dessine la porte avec les informations contenu dans la fonction determiner_immeuble(numero)'''
     porte = {}
     porte['écriture'] = 'black'
     porte['fond'] = informations['couleur_porte']
@@ -56,44 +139,27 @@ def dessiner_porte(informations):
     cc.rectangle(30, 50, porte, (x,y))
     
 def dessiner_toit(informations):
-'''Dessine le toit avec les informations contenu dans la fonction determiner_immeuble(numero)'''
     toit = {}
     toit['écriture'] = 'black'
     toit['fond'] = informations['couleur_toit']
     toit['épaisseur'] = 2
     taille_batiment = informations['numero']*180 - 300
     forme_toit = random.randint(0, 1)
-    x = taille_batiment
+    x = taille_batiment - 1
     y = informations['hauteur_batiment']
     if forme_toit == 0:
-        cc.triangle(140, 180,toit, (x,y))
+        cc.triangle(141, 100,toit, (x,y))
     else:
-        cc.arc_de_cercle(-70, 180, toit, (x,y))
-    
-def dessiner_fenetre(informations):
-    fenetre = {}
-    h = 20 
-    t = 0
-    fenetre['écriture'] = 'black'
-    fenetre['fond'] = 'blue'
-    fenetre['épaisseur'] = 2
-    taille_batiment = informations['numero'] * 180 -300
-    for d in range(100):
-        while h < informations['hauteur_batiment']:
-            while t < 140:
-                x = informations['numero'] * 180 - 300 + t
-                y = informations['numero'] * 0
-                cc.carre(30, fenetre, (x, y))
-                t = t + 55
-             
+        cc.arc_de_cercle(-71, 180, toit, (x,y))
+        
 def dessiner_immeuble(informations:dict):
     dessiner_facade(informations)
     dessiner_porte(informations)
     dessiner_toit(informations)
-    dessiner_fenetre(informations)
+
     
 # Programme principal
  
 for x in range(4):
     informations = determiner_immeuble(x)
-    dessiner_immeuble(informations
+    dessiner_immeuble(informations)
