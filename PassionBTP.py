@@ -123,7 +123,7 @@ def determiner_immeuble(numero):
 # Fonctions d'interface graphique
  
 def dessiner_facade(informations):
- '''Fonction servant à dessiner la façade des batiments'''
+ #Fonction servant à dessiner la façade des batiments
     facade = {}  #Stock les differentes informations dans un tuple
     facade['écriture'] = 'black'
     facade['fond'] = informations['couleur_facade']
@@ -133,7 +133,7 @@ def dessiner_facade(informations):
     cc.rectangle(140, informations['hauteur_batiment'], facade, (x,y))
     
 def dessiner_porte(informations):
- '''Fonction servant à dessiner la porte des batiments'''
+ #Fonction servant à dessiner la porte des batiments
     porte = {}  #Stock les differentes informations dans un tuple
     porte['écriture'] = 'black'
     porte['fond'] = informations['couleur_porte']
@@ -145,13 +145,13 @@ def dessiner_porte(informations):
     cc.rectangle(30, 50, porte, (x,y))
     
 def dessiner_toit(informations):
- '''Fonction servant à dessiner le toit des batiments'''
+ #Fonction servant à dessiner le toit des batiments
     toit = {}  #Stock les differentes informations dans un tuple
     toit['écriture'] = 'black'
     toit['fond'] = informations['couleur_toit']
     toit['épaisseur'] = 2
     taille_batiment = informations['numero']*180 - 300
-    forme_toit = random.randint(0, 1)  '''Tire aléatoirement la forme du toit '''
+    forme_toit = random.randint(0, 1)  #Tire aléatoirement la forme du toit
     x = taille_batiment - 1
     y = informations['hauteur_batiment'] - 250
     if forme_toit == 0:
@@ -160,7 +160,7 @@ def dessiner_toit(informations):
         cc.arc_de_cercle(-71, 180, toit, (x,y))
         
 def dessiner_fenetre(informations):
- '''Fonction servant à dessiner les fenetres des batiments'''
+ #Fonction servant à dessiner les fenetres des batiments
     fenetre = {}  #Stock les differentes informations dans un tuple
     fenetre['écriture'] = 'black'
     fenetre['fond'] = 'skyblue'
@@ -234,7 +234,7 @@ def dessiner_fenetre(informations):
             h = h + 55
         
 def dessiner_immeuble(informations:dict):
- '''Fonction qui vas servir à executer les differentes fonctions de dessin dans l'ordre (façade -> porte -> toit -> fenetre) afin de dessiner les batiments'''
+ #Fonction qui vas servir à executer les differentes fonctions de dessin dans l'ordre (façade -> porte -> toit -> fenetre) afin de dessiner les batiments
     dessiner_facade(informations)
     dessiner_porte(informations)
     dessiner_toit(informations)
@@ -243,6 +243,6 @@ def dessiner_immeuble(informations:dict):
 # Programme principal
  
 for x in range(4):
- '''Execution de la fonction dessiner_immeuble en boucle un nombre de fois définit dans le "range()"'''
+ #Execution de la fonction dessiner_immeuble en boucle un nombre de fois définit dans le "range()"
     informations = determiner_immeuble(x)
     dessiner_immeuble(informations)
