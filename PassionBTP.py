@@ -1,4 +1,4 @@
-#projet d'Hugo, Sullyvan et Mathias
+#projet Nyugo, Nyullyvan et Nyathias
 
 # Importation   
 from dessin import codecache as cc
@@ -8,13 +8,14 @@ from dessin.codecache import rectangle2
 from dessin.codecache import triangle
 from dessin.codecache import arc_de_cercle
 from dessin.codecache import carre
-
+  
  
 # Fonction gestion des données
 def determiner_immeuble(numero):
+    '''Détermine les informations de chaque immeuble grace à leur numéro'''
     reponse = {}
   
-    '''Définit aléatoirement la couleur de la facade'''
+    #Définit aléatoirement la couleur de la facade
     couleur_facade = random.randint(0, 14)
     if couleur_facade == 0:
         couleur_facade = 'darkorchid'
@@ -48,7 +49,7 @@ def determiner_immeuble(numero):
         couleur_facade = 'cadetblue'
       
     reponse['couleur_facade'] = couleur_facade
-    '''Définit aléatoirement la couleur de la porte'''
+    #Définit aléatoirement la couleur de la porte
     couleur_porte = random.randint(0, 14)
     if couleur_porte == 0:
         couleur_porte = 'darkorchid'
@@ -82,7 +83,7 @@ def determiner_immeuble(numero):
         couleur_porte = 'cadetblue'
       
     reponse['couleur_porte'] = couleur_porte
-    '''Définit aléatoirement la couleur de la toit'''
+    #Définit aléatoirement la couleur de la toit
     couleur_toit = random.randint(0, 14)
     if couleur_toit == 0:
         couleur_toit = 'darkorchid'
@@ -123,7 +124,7 @@ def determiner_immeuble(numero):
 # Fonctions d'interface graphique
  
 def dessiner_facade(informations):
- #Fonction servant à dessiner la façade des batiments
+    '''Fonction servant à dessiner la façade des batiments'''
     facade = {}  #Stock les differentes informations dans un tuple
     facade['écriture'] = 'black'
     facade['fond'] = informations['couleur_facade']
@@ -133,7 +134,7 @@ def dessiner_facade(informations):
     cc.rectangle(140, informations['hauteur_batiment'], facade, (x,y))
     
 def dessiner_porte(informations):
- #Fonction servant à dessiner la porte des batiments
+    '''Fonction servant à dessiner la porte des batiments'''
     porte = {}  #Stock les differentes informations dans un tuple
     porte['écriture'] = 'black'
     porte['fond'] = informations['couleur_porte']
@@ -145,7 +146,7 @@ def dessiner_porte(informations):
     cc.rectangle(30, 50, porte, (x,y))
     
 def dessiner_toit(informations):
- #Fonction servant à dessiner le toit des batiments
+    '''Fonction servant à dessiner le toit des batiments'''
     toit = {}  #Stock les differentes informations dans un tuple
     toit['écriture'] = 'black'
     toit['fond'] = informations['couleur_toit']
@@ -160,7 +161,7 @@ def dessiner_toit(informations):
         cc.arc_de_cercle(-71, 180, toit, (x,y))
         
 def dessiner_fenetre(informations):
- #Fonction servant à dessiner les fenetres des batiments
+    '''Fonction servant à dessiner les fenetres des batiments'''
     fenetre = {}  #Stock les differentes informations dans un tuple
     fenetre['écriture'] = 'black'
     fenetre['fond'] = 'skyblue'
@@ -234,7 +235,7 @@ def dessiner_fenetre(informations):
             h = h + 55
         
 def dessiner_immeuble(informations:dict):
- #Fonction qui vas servir à executer les differentes fonctions de dessin dans l'ordre (façade -> porte -> toit -> fenetre) afin de dessiner les batiments
+    '''Fonction qui vas servir à executer les differentes fonctions de dessin dans l'ordre (façade -> porte -> toit -> fenetre) afin de dessiner les batiments'''
     dessiner_facade(informations)
     dessiner_porte(informations)
     dessiner_toit(informations)
@@ -243,6 +244,6 @@ def dessiner_immeuble(informations:dict):
 # Programme principal
  
 for x in range(4):
- #Execution de la fonction dessiner_immeuble en boucle un nombre de fois définit dans le "range()"
+    '''Execution de la fonction dessiner_immeuble en boucle un nombre de fois définit dans le "range()"'''
     informations = determiner_immeuble(x)
     dessiner_immeuble(informations)
