@@ -30,10 +30,14 @@ def nouveau_stylo(ecriture, fond, largeur):
     feutre.color(ecriture)
     feutre.fillcolor(fond)
     feutre.pensize(largeur)
-    feutre.speed(1000)
+    feutre.speed(100000)
     return feutre
 
- 
+def ciel(couleur):
+    trt.bgcolor(couleur)
+   
+    
+
 def deplacer(feutre, x, y):
     '''Lève le feutre, déplace le feutre et abaisse le feutre
  
@@ -263,3 +267,4 @@ if __name__ == '__main__':
     
     divers5 = {'écriture':'black', 'fond':'brown', 'épaisseur':2}
     rectangle2(30, 50, divers5, (100,100))
+  
