@@ -30,8 +30,9 @@ def nouveau_stylo(ecriture, fond, largeur):
     feutre.color(ecriture)
     feutre.fillcolor(fond)
     feutre.pensize(largeur)
-    feutre.speed(100)
+    feutre.speed(1000)
     return feutre
+
  
 def deplacer(feutre, x, y):
     '''Lève le feutre, déplace le feutre et abaisse le feutre
@@ -49,7 +50,7 @@ def deplacer(feutre, x, y):
  
     
 def trace_triangle(feutre, largeur, hauteur, x, y):
- '''Trace un arc de cercle à l'aide du crayon feutre
+    '''Trace un arc de cercle à l'aide du crayon feutre
  
     :: param ftr(Turtle)    :: la référence du crayon
     :: param largeur(int)     :: la valeur en pixel de la largeur du triangle
@@ -67,7 +68,7 @@ def trace_triangle(feutre, largeur, hauteur, x, y):
     feutre.hideturtle()
     
 def trace_carre(feutre, cote):
- '''Trace un arc de cercle à l'aide du crayon feutre
+    '''Trace un arc de cercle à l'aide du crayon feutre
  
     :: param ftr(Turtle)    :: la référence du crayon
     :: param cote(int)     :: la valeur en pixel des cotes du carre
@@ -84,7 +85,7 @@ def trace_carre(feutre, cote):
     
     
 def trace_rectangle(feutre, largeur, hauteur):
- '''Trace un arc de cercle à l'aide du crayon feutre
+    '''Trace un arc de cercle à l'aide du crayon feutre
  
     :: param ftr(Turtle)    :: la référence du crayon
     :: param largeur(int)     :: la valeur en pixel de la largeur du reclangle
@@ -112,14 +113,14 @@ def trace_rectangle2(feutre, largeur, hauteur):
     .. effet de bord        :: modifie l'état de ftr
  
     '''
-    feutre.begin_fill()
-    for x in range(2):
-        feutre.forward(largeur)
-        feutre.left(90)
-        feutre.forward(hauteur)
-        feutre.left(90)
-    feutre.end_fill()
-    feutre.hideturtle()
+     feutre.begin_fill()
+     for x in range(2):
+         feutre.forward(largeur)
+         feutre.left(90)
+         feutre.forward(hauteur)
+         feutre.left(90)
+     feutre.end_fill()
+     feutre.hideturtle()
     
 def trace_arc(feutre, rayon, angle):
     '''Trace un arc de cercle à l'aide du crayon feutre
@@ -163,7 +164,7 @@ def arc_de_cercle(rayon, angle, infos, coordonnees):
 
 
 def carre(cote, infos, coordonnees):
- '''Trace un carre à partir des infos et aux bonnees coordonnées
+    '''Trace un carre à partir des infos et aux bonnees coordonnées
  
     :: param cote(int)                    :: la valeur en pixel d'un cote
     :: param infos(dict)                   :: un dictionnaire {"écriture":str, "fond":str, "épaisseur":int}    
@@ -182,7 +183,7 @@ def carre(cote, infos, coordonnees):
     
     
 def rectangle(largeur, hauteur, infos, coordonnees):
- '''Trace un rectangle à partir des infos et aux bonnees coordonnées
+    '''Trace un rectangle à partir des infos et aux bonnees coordonnées
  
     :: param largeur(int)                    :: la valeur en pixel de la largeur
     :: param hauteur(int)                    :: la valeur en pixel de la hauteur
@@ -203,7 +204,7 @@ def rectangle(largeur, hauteur, infos, coordonnees):
     
     
 def rectangle2(largeur, hauteur, infos, coordonnees):
- '''Trace un rectangle à partir des infos et aux bonnees coordonnées
+    '''Trace un rectangle à partir des infos et aux bonnees coordonnées
  
     :: param largeur(int)                    :: la valeur en pixel de la largeur
     :: param hauteur(int)                    :: la valeur en pixel de la hauteur
@@ -224,7 +225,7 @@ def rectangle2(largeur, hauteur, infos, coordonnees):
 
 
 def triangle(largeur, hauteur, infos, coordonnees):
- '''Trace un rectangle à partir des infos et aux bonnees coordonnées
+    '''Trace un rectangle à partir des infos et aux bonnees coordonnées
  
     :: param largeur(int)                    :: la valeur en pixel de la largeur
     :: param hauteur(int)                    :: la valeur en pixel de la hauteur
