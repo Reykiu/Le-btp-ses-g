@@ -1,4 +1,4 @@
-#projet Nyugo, Nyullyvan et Nyathias
+#projet Hugo, Sullyvan et Mathias
 
 # Importation   
 from dessin import codecache as cc
