@@ -1,4 +1,4 @@
-#projet Hugo, Sullyvan et Mathias
+#projet de Mathias, Sullyvan, Hugo
 
 # Importation   
 from dessin import codecache as cc
